@@ -69,12 +69,13 @@ char peek(Queue Q) {
 
 // This display function assumes there's no duplicate elements
 void display(Queue *Q) {
-	char data = Q->front->data; // will have to compare every member for structures
+	if (Q->front != NULL) {
+		char data = Q->front->data; // will have to compare every member for structures
 	
-	do {
-		printf("%c ", peek(*Q));
-		enqueue(Q, peek(*Q));
-		dequeue(Q);
-	} while (data != peek(*Q));
-	
+		do {
+			printf("%c ", peek(*Q));
+			enqueue(Q, peek(*Q));
+			dequeue(Q);
+		} while (data != peek(*Q));
+	}
 }
